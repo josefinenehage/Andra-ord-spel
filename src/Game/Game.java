@@ -7,18 +7,22 @@ import java.awt.event.ActionListener;
 import java.util.List;
 
 public class Game extends JFrame {
+    private List<String> words;
 
-    //List<String> words,int thieves
-    public Game(String getWords){
+    public Game(List<String> words) {
+        this.words = words;
+    }
 
+    public void run() {
 
+        System.out.println(words);
         //Frame
         JFrame frame = new JFrame();
         frame.setVisible(true);
         frame.setSize(550, 550);
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         frame.getContentPane().setLayout(new FlowLayout());
-       //Start button
+        //Start button
         JButton startBtn = new JButton("Start");
         startBtn.setBounds(10, 10, 140, 40);
         frame.add(startBtn);
@@ -31,7 +35,7 @@ public class Game extends JFrame {
         startBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println(getWords);
+                System.out.println(words);
             }
         });
     }
