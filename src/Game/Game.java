@@ -38,6 +38,11 @@ public class Game extends JFrame {
                 System.out.println(words);
             }
         });
+
+        // Går att ersätta med lambda (som pilfunktioner i javascript)
+        // startBtn.addActionListener((event) -> {
+        //     System.out.println(words);
+        // });
     }
 
 
