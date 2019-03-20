@@ -8,6 +8,7 @@ import java.util.List;
 
 public class Game extends JFrame {
     private List<String> words;
+    int i = 0;
 
     public Game(List<String> words) {
         this.words = words;
@@ -32,17 +33,10 @@ public class Game extends JFrame {
 
         //Eventlistener skicka ut ord
 
-        startBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.out.println(words);
-            }
+        startBtn.addActionListener((event)->{
+            System.out.println("hej");
         });
-
-        // Går att ersätta med lambda (som pilfunktioner i javascript)
-        // startBtn.addActionListener((event) -> {
-        //     System.out.println(words);
-        // });
+        
     }
 
 
