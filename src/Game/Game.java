@@ -34,9 +34,19 @@ public class Game extends JFrame {
         //Eventlistener skicka ut ord
 
         startBtn.addActionListener((event)->{
-            System.out.println("hej");
+
+         if(i<words.size()){
+
+
+           firstWord.setText(words.get(i));
+           frame.add(firstWord);
+         //   System.out.println(words.get(i));
+            i++;
+         }else{
+             firstWord.setText("Spelet över!");
+         }
         });
-        
+
     }
 
 
