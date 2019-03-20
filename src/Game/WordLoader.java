@@ -1,52 +1,48 @@
 package Game;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 import java.io.FileNotFoundException;
 
 public class WordLoader {
 
     private List<String> words = new ArrayList<>();
 
-    public WordLoader(){
+    public WordLoader() {
 
+        File file = new File("C:\\Users\\josefin.enehage\\Documents\\Andra-ord-spel\\wordfile.txt");
+        Scanner scan = null;
+        try {
+            scan = new Scanner(file);
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found!");
+        }
 
-        words.add("ord1");
-        words.add("ord2");
-        words.add("ord3");
-        words.add("ord4");
+        while (scan.hasNextLine()) {
+            String word = scan.nextLine();
+            String split[] = word.split(" ");
 
+            for(String s : split){
+                words.add(s);
+            }
+        }
+
+        Random rand = new Random();
+        int num = rand.nextInt(10);
+        for (int i = 0; i < num; i++) {
+            words.add("Tjuv!");
+        }
+
+        Collections.shuffle(words);
 
     }
+
+
 
     public List<String> getWords() {
         return words;
     }
 
-
-    /*
-
-    public WordLoader{
-        List<String> words = new ArrayList<>();
-
-        File file = new File( "C:\\Users\\josefin.enehage\\Documents\\Med-andra-ord\\src\\words.txt" );
-
-            Scanner scan = new Scanner(file);
-
-        while(scan.hasNextLine()){
-            String word = scan.nextLine();
-            String split [] =  word.split(" ");
-
-            for(String i : split){
-                words.add(i);
-            }
-
-        }
-
-
-*/
 
 
 }
