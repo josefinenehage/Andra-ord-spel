@@ -33,7 +33,7 @@ public class WordLoader {
             words.add("Tjuv!");
         }
 
-        Collections.shuffle(words);
+       // Collections.shuffle(words);
 
     }
 

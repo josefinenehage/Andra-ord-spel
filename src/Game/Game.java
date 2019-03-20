@@ -2,6 +2,7 @@ package Game;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Collections;
 import java.util.List;
 
 public class Game extends JFrame {
@@ -10,39 +11,55 @@ public class Game extends JFrame {
 
     public Game(List<String> words) {
         this.words = words;
+        Collections.shuffle(words);
     }
 
     public void run() {
 
-        //Frame
         JFrame frame = new JFrame();
-        frame.setVisible(true);
-        frame.setSize(550, 550);
-        frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        frame.getContentPane().setLayout(new FlowLayout());
-        //Start button
-        JButton startBtn = new JButton("Start");
-        startBtn.setBounds(10, 10, 140, 40);
-        frame.add(startBtn);
-        JButton shuffle = new JButton("Shuffle");
+            frame.setVisible(true);
+            frame.setSize(450, 450);
+            frame.setResizable(false);
+            frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+            //frame.getContentPane().setLayout(new FlowLayout());
+            frame.getContentPane().setBackground(Color.white);
 
-        // Labels för ord
-        JLabel label = new JLabel();
 
-        //Eventlistener skicka ut ord
+            JPanel panel = new JPanel(new GridBagLayout());
+            GridBagConstraints c = new GridBagConstraints();
+            c.fill = GridBagConstraints.HORIZONTAL;
 
-        startBtn.addActionListener((event) -> {
+        JButton startBtn = new JButton("Start game");
+          startBtn.setBackground(Color.orange);
+          c.gridx = 1;
+          c.gridy = 5;
 
+         // startBtn.setSize(new Dimension(40,1));
+     //    frame.getContentPane().add(startBtn);
+        panel.add(startBtn,c);
+
+        frame.setContentPane(panel);
+
+     //   JButton shuffle = new JButton("Shuffle");
+
+
+   /*     startBtn.addActionListener((event) -> {
+            frame.remove(startBtn);
+            frame.repaint();
+            label.setText(words.get(i));
+            frame.add(shuffle);
+        });
+
+        shuffle.addActionListener((event)->{
             if (i < words.size()) {
+                i++;
                 frame.add(label);
                 label.setText(words.get(i));
-                i++;
+
             } else {
                 label.setText("Spelet över!");
             }
-        });
-
-
+        });*/
 
 
     }
