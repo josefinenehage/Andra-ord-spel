@@ -17,40 +17,40 @@ public class Game extends JFrame {
     public void run() {
 
         JFrame frame = new JFrame();
-            frame.setVisible(true);
-            frame.setSize(450, 450);
-            frame.setResizable(false);
-            frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-            //frame.getContentPane().setLayout(new FlowLayout());
-            frame.getContentPane().setBackground(Color.white);
+        frame.setVisible(true);
+        frame.setSize(450, 450);
+        frame.setResizable(false);
+        frame.setLocation(800, 200);
+        frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        frame.setLayout(null);
+        frame.getContentPane().setBackground(Color.white);
 
-
-            JPanel panel = new JPanel(new GridBagLayout());
-            GridBagConstraints c = new GridBagConstraints();
-            c.fill = GridBagConstraints.HORIZONTAL;
 
         JButton startBtn = new JButton("Start game");
-          startBtn.setBackground(Color.orange);
-          c.gridx = 1;
-          c.gridy = 5;
-
-         // startBtn.setSize(new Dimension(40,1));
-     //    frame.getContentPane().add(startBtn);
-        panel.add(startBtn,c);
-
-        frame.setContentPane(panel);
-
-     //   JButton shuffle = new JButton("Shuffle");
+        startBtn.setBackground(Color.orange);
+        startBtn.setBounds(120, 170, 140, 40);
+        frame.add(startBtn);
 
 
-   /*     startBtn.addActionListener((event) -> {
+        JButton shuffle = new JButton("Shuffle");
+        shuffle.setBackground(Color.blue);
+        shuffle.setBounds(120, 170, 140, 40);
+
+
+        JLabel label = new JLabel();
+        label.setBounds(150, 80, 300, 100);
+
+        startBtn.addActionListener((event) -> {
             frame.remove(startBtn);
+
             frame.repaint();
-            label.setText(words.get(i));
+            label.setText(words.get(0));
+            frame.repaint();
             frame.add(shuffle);
+
         });
 
-        shuffle.addActionListener((event)->{
+        shuffle.addActionListener((event) -> {
             if (i < words.size()) {
                 i++;
                 frame.add(label);
@@ -59,7 +59,7 @@ public class Game extends JFrame {
             } else {
                 label.setText("Spelet över!");
             }
-        });*/
+        });
 
 
     }
