@@ -7,7 +7,7 @@ import java.util.List;
 
 public class Game extends JFrame {
     private List<String> words;
-    private int i = 0;
+    int i = 0;
 
     public Game(List<String> words) {
         this.words = words;
@@ -15,6 +15,10 @@ public class Game extends JFrame {
     }
 
     public void run() {
+
+    //    Font f = new Font("serif", Font.PLAIN, 15);
+        Font f = new Font("HELVETICA", Font.BOLD, 25);
+        Font btnF = new Font("HELVETICA", Font.BOLD, 20);
 
         JFrame frame = new JFrame();
         frame.setVisible(true);
@@ -28,38 +32,43 @@ public class Game extends JFrame {
 
         JButton startBtn = new JButton("Start game");
         startBtn.setBackground(Color.orange);
-        startBtn.setBounds(120, 170, 140, 40);
+        startBtn.setBounds(150, 170, 140, 40);
+        startBtn.setFont(btnF);
         frame.add(startBtn);
 
 
         JButton shuffle = new JButton("Shuffle");
-        shuffle.setBackground(Color.blue);
-        shuffle.setBounds(120, 170, 140, 40);
-
+        shuffle.setBackground(Color.green);
+        shuffle.setBounds(150, 170, 140, 40);
+        shuffle.setFont(btnF);
 
         JLabel label = new JLabel();
-        label.setBounds(150, 80, 300, 100);
+        label.setBounds(180, 80, 300, 100);
+        label.setFont(f);
+
 
         startBtn.addActionListener((event) -> {
             frame.remove(startBtn);
-
             frame.repaint();
-            label.setText(words.get(0));
+            label.setText(words.get(i));
             frame.repaint();
             frame.add(shuffle);
 
         });
 
         shuffle.addActionListener((event) -> {
-            if (i < words.size()) {
+            if (i <= words.size()) {
                 i++;
                 frame.add(label);
                 label.setText(words.get(i));
 
             } else {
                 label.setText("Spelet över!");
+
             }
         });
+
+
 
 
     }
